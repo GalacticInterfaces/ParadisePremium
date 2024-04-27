@@ -36,7 +36,7 @@ document.getElementById("authButton").addEventListener("click", function() {
     fetch('files/data/active.json')
     .then(response => response.json())
     .then(data => {
-        if (data === 'YES') {
+        if (data === '"YES"') {
             document.cookie = "access=true; expires=Fri, 31 Dec 9999 23:59:59 GMT"; // Setting a cookie named 'access'
             alert("Authentication successful. Cookie 'access' added.");
         } else {
