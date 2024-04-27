@@ -41,7 +41,6 @@ document.getElementById("authButton").addEventListener("click", function() {
             alert("Authentication successful. Cookie 'access' added.");
         } else {
             window.close(); // Close the window if authentication fails
-            alert("Authentication failed.");
         }
     })
     .catch(error => {
