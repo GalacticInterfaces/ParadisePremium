@@ -59,7 +59,7 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ status: 'YES' })
+      body: JSON.stringify({ status: '"YES"' })
     });
 
     let count = 30;
@@ -80,7 +80,7 @@
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ status: 'NO' })
+        body: JSON.stringify({ status: '"NO"' })
       });
 
       clearInterval(countdownInterval);
@@ -96,7 +96,7 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ status: 'NO' })
+      body: JSON.stringify({ status: '"NO"' })
     });
 
     clearInterval(countdownInterval);
