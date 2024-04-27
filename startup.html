@@ -55,7 +55,7 @@
     document.getElementById('timer').style.display = 'block';
 
     fetch('/files/data/active.json', {
-      method: 'POST', // Using POST method instead of PUT
+      method: 'GET', // Using GET method
       headers: {
         'Content-Type': 'application/json'
       },
@@ -76,7 +76,7 @@
 
     setTimeout(() => {
       fetch('/files/data/active.json', {
-        method: 'POST', // Using POST method instead of PUT
+        method: 'GET', // Using  method instead of PUT
         headers: {
           'Content-Type': 'application/json'
         },
@@ -92,7 +92,7 @@
 
   function panic() {
     fetch('/files/data/active.json', {
-      method: 'POST', // Using POST method instead of PUT
+      method: 'GET', // Using  method instead of PUT
       headers: {
         'Content-Type': 'application/json'
       },
