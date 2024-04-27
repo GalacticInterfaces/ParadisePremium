@@ -33,7 +33,7 @@
 
 <script>
 document.getElementById("authButton").addEventListener("click", function() {
-    fetch('/files/data/active.json')
+    fetch('files/data/active.json')
     .then(response => response.json())
     .then(data => {
         if (data === 'YES') {
