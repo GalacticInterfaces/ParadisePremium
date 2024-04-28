@@ -59,7 +59,10 @@
     // Function to play sound
     function playSound() {
         var audio = new Audio('https://github.com/GalacticInterfaces/GodFolder/raw/main/developer%20files/GRAVITYBACKGROUND.mp3');
-        audio.play();
+        // Start playing the sound 0.5 seconds earlier
+        setTimeout(function() {
+            audio.play();
+        }, 500); // 0.5 seconds in milliseconds
     }
 
     function checkPassword() {
@@ -99,7 +102,7 @@
             document.getElementById("authentication-form").classList.add("fadeOut");
             document.getElementById("ascendButton").classList.add("fadeOut");
 
-            // Play sound immediately
+            // Play sound
             playSound();
         } else {
             alert("Authentication failed! Please try again.");
