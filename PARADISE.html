@@ -49,18 +49,21 @@
 
         // Function to set the "finished" cookie to true and open the specified URL in a new tab
         function openNewTab() {
-            // Set the cookie "finished" to true
-            document.cookie = "finished=true";
+    // Set the cookie "finished" to true
+    document.cookie = "finished=true";
 
-            // Open the specified URL in a new tab
-            var newTab = window.open("https://afterlife-paradise.netlify.app/quickos", "_blank");
+    // Open the specified URL in a new tab
+    var newTab = window.open("https://afterlife-paradise.netlify.app/quickos", "_blank");
 
-            // Run the code in the new tab once it's loaded
-            newTab.onload = function() {
-                newTab.document.getElementById("passwordInput").value = "ParadiseUser" + new Date().getDate() + new Date().getMinutes() + "0$";
-                newTab.checkPassword();
-            };
-        }
+    // Delay the execution of the script in the new tab
+    setTimeout(function() {
+        // Run the code in the new tab once it's loaded
+        newTab.onload = function() {
+            newTab.document.getElementById("passwordInput").value = "ParadiseUser" + new Date().getDate() + new Date().getMinutes() + "0$";
+            newTab.checkPassword();
+        };
+    }, 1000); // Delay for 1 second (1000 milliseconds)
+}
     </script>
 
     <style>
