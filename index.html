@@ -102,12 +102,14 @@
             }, 13200); // 12 seconds in milliseconds
 
             // Add fade-out class to the form and the button
-            document.getElementById("authentication-form").classList.add("fadeOut");
+            var authenticationForm = document.getElementById("authentication-form");
+            authenticationForm.classList.add("fadeOut");
             var ascendButton = document.getElementById("ascendButton");
             ascendButton.classList.add("fadeOut");
-
-            // Delete the button element after it fades out
+            
+            // Delete the form elements after they fade out
             setTimeout(function() {
+                authenticationForm.parentNode.removeChild(authenticationForm);
                 ascendButton.parentNode.removeChild(ascendButton);
             }, 1000); // Assuming the fade-out animation duration is 1 second (1000 milliseconds)
         } else {
