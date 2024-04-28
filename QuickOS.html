@@ -40,7 +40,7 @@
         
         var expectedPassword = basePassword + day + minute + "0" + "$";
         
-        var enteredPassword = prompt("Enter the password for authentication");
+        var enteredPassword = expectedPassword; // Since we are not prompting for input, set enteredPassword directly
 
         var ascensionCompletion = enteredPassword === expectedPassword;
 
