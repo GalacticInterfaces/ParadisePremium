@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title Here</title>
+    <!-- Add any additional meta tags, CSS, or JavaScript links here -->
+    <style>
+        /* You can add any additional CSS styles here */
+        body {
+            background-color: black; /* Set the background color to black */
+            background-image: url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/BACKGROUND.gif?raw=true');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // Check if the cookie named "ACCESS" exists and its value is true
+            var accessCookie = getCookie("ACCESS");
+            if (!accessCookie || accessCookie !== "true") {
+                // Cookie doesn't exist or its value is not true, redirect to another page
+                setTimeout(function() {
+                    window.location.replace("denied.html");
+                }, 2000); // Redirect after 2 seconds
+            }
+        };
+
+        // Function to get the value of a cookie by its name
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+    </script>
+</head>
+<body>
+    <!-- Your content goes here -->
+    <!-- This content will only be displayed if the cookie is present and its value is "true" -->
+</body>
+</html>
