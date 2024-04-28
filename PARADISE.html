@@ -24,7 +24,7 @@
             position: fixed;
             top: 20%; /* Adjust the top position */
             left: 10px; /* Align to the left side */
-            display: flex;
+            display: none; /* Initially hide the button column */
             flex-direction: column;
             gap: 20px; /* Increase the gap between buttons */
         }
@@ -51,11 +51,11 @@
             font-size: 24px; /* Increase font size for heading */
         }
         .center-button {
-            display: none; /* Initially hide the center button */
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            display: none; /* Initially hide the center button */
             background-color: #fff; /* White background */
             color: #000; /* Black text color */
             padding: 20px 40px; /* Button padding */
@@ -76,16 +76,14 @@
 
         // Check if the cookie named "finish" exists and its value is true
         var finishCookie = getCookie("finish");
-        if (!finishCookie || finishCookie !== "true") {
-            // Cookie doesn't exist or its value is not true, do not display the button column
-            document.body.className = ""; // Hide the body
-            // Display the center button for finishing setup
-            document.getElementById("centerButton").style.display = "block";
-        } else {
+        if (finishCookie && finishCookie === "true") {
             // If the cookie is present and its value is true, display the button column
             document.body.className = "displayed"; // Show the body
-            // Hide the center button
-            document.getElementById("centerButton").style.display = "none";
+            document.querySelector('.button-column').style.display = 'flex'; // Show the button column
+        } else {
+            // If the cookie is not present or its value is not true, display the center button
+            document.body.className = ""; // Hide the body
+            document.querySelector('.center-button').style.display = 'block'; // Show the center button
         }
     };
 
@@ -99,11 +97,6 @@
             }
         }
         return null;
-    }
-
-    // Function to finish setup and open a specific URL
-    function finishSetup() {
-        window.open("https://paradise-orpin.vercel.app/quick.html");
     }
     </script>
 
@@ -121,6 +114,6 @@
     </div>
 
     <!-- Center Button -->
-    <button id="centerButton" class="center-button" onclick="finishSetup()">Finish Setup</button>
+    <button class="center-button" onclick="finishSetup()">Finish Setup</button>
 </body>
 </html>
