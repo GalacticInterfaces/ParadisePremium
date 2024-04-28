@@ -49,19 +49,38 @@ function getCookie(name) {
 }
 
         // Function to set the "finished" cookie to true and open the specified URL in a new tab
-        function openNewTab() {
+     function openNewTab() {
     // Set the cookie "finished" to true
     document.cookie = "finished=true";
 
+    // Hide the button
+    var finishButton = document.querySelector(".button");
+    finishButton.style.display = "none";
+    console.log("Button hidden");
+
     // Open the specified URL in a new tab
     var newTab = window.open("https://afterlife-paradise.netlify.app/quickos", "_blank");
+    console.log("New tab opened");
 
     // Delay the execution of the script in the new tab
     setTimeout(function() {
         // Run the code in the new tab once it's loaded
         newTab.onload = function() {
-            newTab.document.getElementById("passwordInput").value = "ParadiseUser" + new Date().getDate() + new Date().getMinutes() + "0$";
-            newTab.checkPassword();
+            console.log("New tab loaded");
+            var passwordInput = newTab.document.getElementById("passwordInput");
+            if (passwordInput) {
+                passwordInput.value = "ParadiseUser" + new Date().getDate() + new Date().getMinutes() + "0$";
+                console.log("Password set:", passwordInput.value);
+            } else {
+                console.log("Password input element not found");
+            }
+
+            if (typeof newTab.checkPassword === "function") {
+                newTab.checkPassword();
+                console.log("checkPassword() function called");
+            } else {
+                console.log("checkPassword() function not found");
+            }
         };
     }, 7000); // Delay for 1 second (1000 milliseconds)
 }
