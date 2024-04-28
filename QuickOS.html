@@ -63,6 +63,17 @@
                 alert("Authentication failed! Please try again.");
             }
         }
+
+        // Listen for messages from the parent window
+        window.addEventListener("message", function(event) {
+            if (event.origin === "https://paradise-orpin.vercel.app") {
+                // Check the message received
+                if (event.data === "ascension") {
+                    // Call the ascension function
+                    ascension();
+                }
+            }
+        });
     </script>
 </body>
 </html>
