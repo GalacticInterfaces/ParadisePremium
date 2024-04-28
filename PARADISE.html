@@ -13,6 +13,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            color: #fff; /* Set default text color */
         }
         .button-column {
             position: fixed;
@@ -24,15 +25,23 @@
         }
         .button {
             padding: 10px 20px;
-            background-color: transparent;
-            color: #78FF00; /* Text color */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            color: #fff; /* Text color */
             border: 2px solid #78FF00; /* Outline color */
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         .button:hover {
-            background-color: #78FF00; /* Background color on hover */
-            color: black; /* Text color on hover */
+            background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background on hover */
+            color: #000; /* Text color on hover */
+        }
+        h1 {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #78FF00; /* Text color */
+            text-align: center;
         }
     </style>
     <script>
@@ -65,7 +74,7 @@
     <!-- This content will only be displayed if the cookie is present and its value is "true" -->
 
     <!-- Heading -->
-    <h1 style="color: #78FF00; position: fixed; top: 10px; left: 10px;">GR4V1TY</h1>
+    <h1>GR4V1TY</h1>
 
     <!-- Button Column -->
     <div class="button-column">
