@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +11,54 @@
         body {
             display: none; /* Hide the body by default */
         }
+    </style>
+    <script>
+    window.onload = function() {
+        // Check if the current domain is not "paradise-orpin.vercel.app"
+        if (window.location.hostname !== "paradise-orpin.vercel.app") {
+            // Redirect to the specified page
+            window.location.replace("https://paradise-orpin.vercel.app/denied.html");
+            return; // Stop further execution
+        }
 
+        // Check if the cookie named "ACCESS" exists and its value is true
+        var accessCookie = getCookie("ACCESS");
+        if (!accessCookie || accessCookie !== "true") {
+            // Cookie doesn't exist or its value is not true, do not display the body
+            document.body.style.display = "none";
+            // Redirect to another page if needed
+            setTimeout(function() {
+                window.location.replace("denied.html");
+            }, 2000); // Redirect after 2 seconds
+        } else {
+            // If the cookie is present and its value is true, display the body
+            document.body.style.display = "block";
+        }
+    };
+
+    // Function to get the value of a cookie by its name
+    function getCookie(name) {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.indexOf(name + '=') === 0) {
+                return cookie.substring(name.length + 1);
+            }
+        }
+        return null;
+    }
+</script>
+
+   
+</head>
+<body>
+    <!-- Your content goes here -->
+    <!-- This content will only be displayed if the cookie is present and its value is "true" -->
+
+    <!-- CSS styles for when the body is displayed -->
+    <style>
         /* CSS styles for when the body is displayed */
-        body.displayed {
+        body {
             background-color: black; /* Set the background color to black */
             background-image: url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/GRAVITY.gif?raw=true');
             background-size: cover;
@@ -24,7 +70,7 @@
             position: fixed;
             top: 20%; /* Adjust the top position */
             left: 10px; /* Align to the left side */
-            display: none; /* Initially hide the button column */
+            display: flex;
             flex-direction: column;
             gap: 20px; /* Increase the gap between buttons */
         }
@@ -50,59 +96,8 @@
             text-align: center;
             font-size: 24px; /* Increase font size for heading */
         }
-        .center-button {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none; /* Initially hide the center button */
-            background-color: #fff; /* White background */
-            color: #000; /* Black text color */
-            padding: 20px 40px; /* Button padding */
-            font-size: 18px; /* Button font size */
-            border: none; /* No border */
-            cursor: pointer;
-        }
     </style>
 
-    <script>
-    window.onload = function() {
-        // Check if the current domain is not "paradise-orpin.vercel.app"
-        if (window.location.hostname !== "paradise-orpin.vercel.app") {
-            // Redirect to the specified page
-            window.location.replace("https://paradise-orpin.vercel.app/denied.html");
-            return; // Stop further execution
-        }
-
-        // Check if the cookie named "finish" exists and its value is true
-        var finishCookie = getCookie("finish");
-        if (finishCookie && finishCookie === "true") {
-            // If the cookie is present and its value is true, display the button column
-            document.body.className = "displayed"; // Show the body
-            document.querySelector('.button-column').style.display = 'flex'; // Show the button column
-        } else {
-            // If the cookie is not present or its value is not true, display the center button
-            document.body.className = ""; // Hide the body
-            document.querySelector('.center-button').style.display = 'block'; // Show the center button
-        }
-    };
-
-    // Function to get the value of a cookie by its name
-    function getCookie(name) {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.indexOf(name + '=') === 0) {
-                return cookie.substring(name.length + 1);
-            }
-        }
-        return null;
-    }
-    </script>
-
-   
-</head>
-<body>
     <!-- Heading -->
     <h1>GR4V1TY</h1>
 
@@ -112,8 +107,5 @@
         <button class="button" onclick="window.open('tunnel rush/Tunnel Rush.html', '_blank')">Tunnel Rush</button>
         <!-- Add more buttons here if needed -->
     </div>
-
-    <!-- Center Button -->
-    <button class="center-button" onclick="finishSetup()">Finish Setup</button>
 </body>
 </html>
