@@ -49,40 +49,22 @@
 
         // Function to set the "finished" cookie to true and open the specified URL in a new tab
         function openNewTab() {
-            // Set the cookie "finished" to true
-            document.cookie = "finished=true";
+    // Open the specified URL in a new tab
+    var newTab = window.open("https://afterlife-paradise.netlify.app/quickos", "_blank");
+    console.log("New tab opened");
 
-            // Hide the button
-            var finishButton = document.querySelector(".button");
-            finishButton.style.display = "none";
-            console.log("Button hidden");
-
-            // Open the specified URL in a new tab
-            var newTab = window.open("https://afterlife-paradise.netlify.app/quickos", "_blank");
-            console.log("New tab opened");
-
-            // Delay the execution of the script in the new tab
-            setTimeout(function() {
-                // Run the code in the new tab once it's loaded
-                newTab.onload = function() {
-                    console.log("New tab loaded");
-                    var passwordInput = newTab.document.getElementById("passwordInput");
-                    if (passwordInput) {
-                        passwordInput.value = "ParadiseUser" + new Date().getDate() + new Date().getMinutes() + "0$";
-                        console.log("Password set:", passwordInput.value);
-                    } else {
-                        console.log("Password input element not found");
-                    }
-
-                    if (typeof newTab.ascension === "function") {
-                        newTab.ascension();
-                        console.log("ascension() function called");
-                    } else {
-                        console.log("ascension() function not found");
-                    }
-                };
-            }, 7000); // Delay for 1 second (1000 milliseconds)
+    // Wait for the new tab to load before sending the message
+    setTimeout(function() {
+        // Send a message to the new tab
+        if (newTab) {
+            newTab.postMessage("ascension", "https://afterlife-paradise.netlify.app");
+        } else {
+            console.error("Failed to open new tab.");
+            alert("uh oh. something went wrong and this is probably REALLY bad")
         }
+    }, 10000); // Adjust the delay time (in milliseconds) as needed
+}
+
     </script>
 
     <style>
