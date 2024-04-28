@@ -62,50 +62,51 @@
         audio.play();
     }
 
-    // Function to check for cookie and ascend if present
-    function checkCookieAndAscend() {
-        var accessCookie = getCookie("ACCESS");
-        if (accessCookie && accessCookie === "true") {
-            ascend();
+    function checkPassword() {
+        // Get the current time in Eastern Standard Time (EST)
+        var now = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
+        now = new Date(now);
+        
+        // Get the current day of the month and minute
+        var day = now.getDate();
+        var minute = now.getMinutes();
+        
+        // Predefined string for the password
+        var basePassword = "ParadiseUser";
+        
+        // Generate password by concatenating the base password with the current day of the month, minute, "0", and "$"
+        var expectedPassword = basePassword + day + minute + "0" + "$";
+        
+        // Get the password entered by the user
+        var enteredPassword = document.getElementById("passwordInput").value;
+
+        // Check if the entered password matches the expected password
+        var ascensionCompletion = enteredPassword === expectedPassword;
+
+        // Set the variable 'ascension-completion' based on the result
+        if (ascensionCompletion) {
+            // Set a cookie named "ACCESS" with value "true" (access granted) accessible across the entire site
+            document.cookie = "ACCESS=true; path=/";
+            // Change background to the GIF
+            document.body.style.backgroundImage = "url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true')";
+            // Wait for 8 seconds before redirecting (instead of 11 seconds)
+            setTimeout(function() {
+                window.location.href = "PARADISE.html";
+            }, 13200); // 12 seconds in milliseconds
+
+            // Add fade-out class to the form and the button
+            document.getElementById("authentication-form").classList.add("fadeOut");
+            document.getElementById("ascendButton").classList.add("fadeOut");
+
+            // Play sound
+            playSound();
+        } else {
+            alert("Authentication failed! Please try again.");
         }
+
+        // For demonstration, logging ascension-completion to console
+        console.log("Ascension Completion:", ascensionCompletion);
     }
-
-    // Function to get cookie value by name
-    function getCookie(cookieName) {
-        var name = cookieName + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var cookieArray = decodedCookie.split(';');
-        for(var i = 0; i <cookieArray.length; i++) {
-            var cookie = cookieArray[i];
-            while (cookie.charAt(0) == ' ') {
-                cookie = cookie.substring(1);
-            }
-            if (cookie.indexOf(name) == 0) {
-                return cookie.substring(name.length, cookie.length);
-            }
-        }
-        return "";
-    }
-
-    // Function to trigger ascension
-    function ascend() {
-        // Change background to the GIF
-        document.body.style.backgroundImage = "url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true')";
-        // Wait for 8 seconds before redirecting (instead of 11 seconds)
-        setTimeout(function() {
-            window.location.href = "PARADISE.html";
-        }, 13200); // 12 seconds in milliseconds
-
-        // Add fade-out class to the form and the button
-        document.getElementById("authentication-form").classList.add("fadeOut");
-        document.getElementById("ascendButton").classList.add("fadeOut");
-
-        // Play sound
-        playSound();
-    }
-
-    // Call checkCookieAndAscend function when the page loads
-    window.onload = checkCookieAndAscend;
 </script>
 </head>
 <body>
