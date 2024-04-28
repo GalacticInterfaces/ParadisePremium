@@ -60,11 +60,12 @@
             newTab.postMessage("ascension", "https://afterlife-paradise.netlify.app");
         } else {
             console.error("Failed to open new tab.");
-            alert("uh oh. something went wrong and this is probably REALLY bad")
+            alert("ok, if you see this error then something in the code did an oopsie and bassically, it's bad :(")
         }
     }, 10000); // Adjust the delay time (in milliseconds) as needed
 }
-
+window.close()
+ window.location.replace("https://paradise-orpin.vercel.app/error.html");
     </script>
 
     <style>
@@ -118,7 +119,7 @@
     <h1>GR4V1TY</h1>
 
     <!-- Button to run the code and open a new tab -->
-    <button class="button" style="background-color: #00FF00; color: #000;" onclick="openNewTab()">FINISH</button>
+    <button class="button" style="background-color: #00FF00; color: #000;" onclick="openNewTab()">reload game access</button>
 
     <!-- Button Column -->
     <div class="button-column">
