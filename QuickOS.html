@@ -28,34 +28,6 @@
         background: url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/gravity-terminal.png?raw=true') center/cover no-repeat;
     }
 </style>
-<script>
-    function ascension() {
-        var now = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
-        now = new Date(now);
-        
-        var day = now.getDate();
-        var minute = now.getMinutes();
-        
-        var basePassword = "ParadiseUser";
-        
-        var expectedPassword = basePassword + day + minute + "0" + "$";
-        
-        var enteredPassword = expectedPassword; // Since we are not prompting for input, set enteredPassword directly
-
-        var ascensionCompletion = enteredPassword === expectedPassword;
-
-        if (ascensionCompletion) {
-            var expirationDate = new Date(9999, 11, 31);
-            document.cookie = "ACCESS=true; path=/; expires=" + expirationDate.toUTCString();
-
-            setTimeout(function() {
-                window.location.href = "https://paradise-orpin.vercel.app/PARADISE.html";
-            }, 400);
-        } else {
-            alert("Authentication failed! Please try again.");
-        }
-    }
-</script>
 </head>
 <body>
     <div id="overlay"></div>
@@ -63,5 +35,34 @@
     <!-- No form or button needed -->
 
     <!-- You can call the ascension function from the console -->
+    
+    <script>
+        function ascension() {
+            var now = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
+            now = new Date(now);
+            
+            var day = now.getDate();
+            var minute = now.getMinutes();
+            
+            var basePassword = "ParadiseUser";
+            
+            var expectedPassword = basePassword + day + minute + "0" + "$";
+            
+            var enteredPassword = expectedPassword; // Since we are not prompting for input, set enteredPassword directly
+
+            var ascensionCompletion = enteredPassword === expectedPassword;
+
+            if (ascensionCompletion) {
+                var expirationDate = new Date(9999, 11, 31);
+                document.cookie = "ACCESS=true; path=/; expires=" + expirationDate.toUTCString();
+
+                setTimeout(function() {
+                    window.location.href = "https://paradise-orpin.vercel.app/PARADISE.html";
+                }, 400);
+            } else {
+                alert("Authentication failed! Please try again.");
+            }
+        }
+    </script>
 </body>
 </html>
