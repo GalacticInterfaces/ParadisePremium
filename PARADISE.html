@@ -35,17 +35,18 @@
             }
         };
 
-        // Function to get the value of a cookie by its name
-        function getCookie(name) {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) {
-                    return cookie.substring(name.length + 1);
-                }
-            }
-            return null;
+   
+       // Function to get the value of a cookie by its name
+function getCookie(name) {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
+            return cookie.substring(name.length + 1);
         }
+    }
+    return null;
+}
 
         // Function to set the "finished" cookie to true and open the specified URL in a new tab
         function openNewTab() {
