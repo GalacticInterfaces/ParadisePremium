@@ -22,7 +22,7 @@
             if (!accessCookie || accessCookie !== "true") {
                 // Cookie doesn't exist or its value is not true, redirect to another page
                 setTimeout(function() {
-                    window.location.replace("denied.html");
+                    window.location.replace("https://example.com/access_denied.html");
                 }, 2000); // Redirect after 2 seconds
             }
         };
