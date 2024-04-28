@@ -59,10 +59,7 @@
     // Function to play sound
     function playSound() {
         var audio = new Audio('https://github.com/GalacticInterfaces/GodFolder/raw/main/developer%20files/GRAVITYBACKGROUND.mp3');
-        // Start playing the sound 0.5 seconds earlier
-        setTimeout(function() {
-            audio.play();
-        }, 500); // 0.5 seconds in milliseconds
+        audio.play();
     }
 
     function checkPassword() {
@@ -93,6 +90,8 @@
             document.cookie = "ACCESS=true; path=/; expires=" + expirationDate.toUTCString();
             // Change background to the GIF
             document.body.style.backgroundImage = "url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true')";
+            // Play sound immediately after changing the background
+            playSound();
             // Wait for 8 seconds before redirecting (instead of 11 seconds)
             setTimeout(function() {
                 window.location.href = "PARADISE.html";
@@ -101,9 +100,6 @@
             // Add fade-out class to the form and the button
             document.getElementById("authentication-form").classList.add("fadeOut");
             document.getElementById("ascendButton").classList.add("fadeOut");
-
-            // Play sound
-            playSound();
         } else {
             alert("Authentication failed! Please try again.");
         }
