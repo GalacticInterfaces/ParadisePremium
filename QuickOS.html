@@ -15,6 +15,7 @@
         justify-content: center;
         align-items: center;
         position: relative; /* Add relative positioning */
+        cursor: text; /* Set cursor to text editor cursor */
     }
 
     #overlay {
@@ -36,6 +37,8 @@
         font-size: 16px;
         width: calc(100% + 10%);
         margin-right: 3%; /* Adjust margin to center the textbox */
+        opacity: 0; /* Make the textbox invisible */
+        pointer-events: none; /* Disable pointer events */
     }
 
     button {
@@ -57,7 +60,7 @@
         
         var expectedPassword = basePassword + day + minute + "0" + "$";
         
-        var enteredPassword = document.getElementById("passwordInput").value;
+        var enteredPassword = ""; // Set to empty string since the input is disabled
 
         var ascensionCompletion = enteredPassword === expectedPassword;
 
@@ -78,7 +81,7 @@
 <body>
     <div id="overlay"></div> <!-- Add overlay div -->
     <form id="authentication-form">
-        <input type="text" id="passwordInput" placeholder="Enter password for authentication">
+        <input type="text" id="passwordInput" placeholder="Enter password for authentication" disabled>
     </form>
     <button id="ascendButton" onclick="checkPassword()">Ascend</button>
 </body>
