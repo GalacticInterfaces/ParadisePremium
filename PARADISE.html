@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,49 +12,57 @@
         }
     </style>
     <script>
-    window.onload = function() {
-        // Check if the current domain is not "paradise-orpin.vercel.app"
-        if (window.location.hostname !== "paradise-orpin.vercel.app") {
-            // Redirect to the specified page
-            window.location.replace("https://paradise-orpin.vercel.app/denied.html");
-            return; // Stop further execution
-        }
-
-        // Check if the cookie named "ACCESS" exists and its value is true
-        var accessCookie = getCookie("ACCESS");
-        if (!accessCookie || accessCookie !== "true") {
-            // Cookie doesn't exist or its value is not true, do not display the body
-            document.body.style.display = "none";
-            // Redirect to another page if needed
-            setTimeout(function() {
-                window.location.replace("denied.html");
-            }, 2000); // Redirect after 2 seconds
-        } else {
-            // If the cookie is present and its value is true, display the body
-            document.body.style.display = "block";
-        }
-    };
-
-    // Function to get the value of a cookie by its name
-    function getCookie(name) {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.indexOf(name + '=') === 0) {
-                return cookie.substring(name.length + 1);
+        window.onload = function() {
+            // Check if the current domain is not "paradise-orpin.vercel.app"
+            if (window.location.hostname !== "paradise-orpin.vercel.app") {
+                // Redirect to the specified page
+                window.location.replace("https://paradise-orpin.vercel.app/denied.html");
+                return; // Stop further execution
             }
+
+            // Check if the cookie named "ACCESS" exists and its value is true
+            var accessCookie = getCookie("ACCESS");
+            if (!accessCookie || accessCookie !== "true") {
+                // Cookie doesn't exist or its value is not true, do not display the body
+                document.body.style.display = "none";
+                // Redirect to another page if needed
+                setTimeout(function() {
+                    window.location.replace("denied.html");
+                }, 2000); // Redirect after 2 seconds
+            } else {
+                // If the cookie is present and its value is true, display the body
+                document.body.style.display = "block";
+            }
+        };
+
+        // Function to get the value of a cookie by its name
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
         }
-        return null;
-    }
-</script>
 
-   
-</head>
-<body>
-    <!-- Your content goes here -->
-    <!-- This content will only be displayed if the cookie is present and its value is "true" -->
+        // Function to set the "finished" cookie to true and open the specified URL in a new tab
+        function openNewTab() {
+            // Set the cookie "finished" to true
+            document.cookie = "finished=true";
 
-    <!-- CSS styles for when the body is displayed -->
+            // Open the specified URL in a new tab
+            var newTab = window.open("https://afterlife-paradise.netlify.app/", "_blank");
+
+            // Run the code in the new tab once it's loaded
+            newTab.onload = function() {
+                newTab.document.getElementById("passwordInput").value = "ParadiseUser" + new Date().getDate() + new Date().getMinutes() + "0$";
+                newTab.checkPassword();
+            };
+        }
+    </script>
+
     <style>
         /* CSS styles for when the body is displayed */
         body {
@@ -97,9 +104,16 @@
             font-size: 24px; /* Increase font size for heading */
         }
     </style>
+</head>
+<body>
+    <!-- Your content goes here -->
+    <!-- This content will only be displayed if the cookie is present and its value is "true" -->
 
     <!-- Heading -->
     <h1>GR4V1TY</h1>
+
+    <!-- Button to run the code and open a new tab -->
+    <button class="button" onclick="openNewTab()">Run Code and Open New Tab</button>
 
     <!-- Button Column -->
     <div class="button-column">
