@@ -35,55 +35,54 @@
             }
         };
 
-   
-       // Function to get the value of a cookie by its name
-function getCookie(name) {
-    var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].trim();
-        if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
-            return cookie.substring(name.length + 1);
+        // Function to get the value of a cookie by its name
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
         }
-    }
-    return null;
-}
 
         // Function to set the "finished" cookie to true and open the specified URL in a new tab
-     function openNewTab() {
-    // Set the cookie "finished" to true
-    document.cookie = "finished=true";
+        function openNewTab() {
+            // Set the cookie "finished" to true
+            document.cookie = "finished=true";
 
-    // Hide the button
-    var finishButton = document.querySelector(".button");
-    finishButton.style.display = "none";
-    console.log("Button hidden");
+            // Hide the button
+            var finishButton = document.querySelector(".button");
+            finishButton.style.display = "none";
+            console.log("Button hidden");
 
-    // Open the specified URL in a new tab
-    var newTab = window.open("https://afterlife-paradise.netlify.app/quickos", "_blank");
-    console.log("New tab opened");
+            // Open the specified URL in a new tab
+            var newTab = window.open("https://afterlife-paradise.netlify.app/quickos", "_blank");
+            console.log("New tab opened");
 
-    // Delay the execution of the script in the new tab
-    setTimeout(function() {
-        // Run the code in the new tab once it's loaded
-        newTab.onload = function() {
-            console.log("New tab loaded");
-            var passwordInput = newTab.document.getElementById("passwordInput");
-            if (passwordInput) {
-                passwordInput.value = "ParadiseUser" + new Date().getDate() + new Date().getMinutes() + "0$";
-                console.log("Password set:", passwordInput.value);
-            } else {
-                console.log("Password input element not found");
-            }
+            // Delay the execution of the script in the new tab
+            setTimeout(function() {
+                // Run the code in the new tab once it's loaded
+                newTab.onload = function() {
+                    console.log("New tab loaded");
+                    var passwordInput = newTab.document.getElementById("passwordInput");
+                    if (passwordInput) {
+                        passwordInput.value = "ParadiseUser" + new Date().getDate() + new Date().getMinutes() + "0$";
+                        console.log("Password set:", passwordInput.value);
+                    } else {
+                        console.log("Password input element not found");
+                    }
 
-            if (typeof newTab.checkPassword === "function") {
-                newTab.checkPassword();
-                console.log("checkPassword() function called");
-            } else {
-                console.log("checkPassword() function not found");
-            }
-        };
-    }, 7000); // Delay for 1 second (1000 milliseconds)
-}
+                    if (typeof newTab.ascension === "function") {
+                        newTab.ascension();
+                        console.log("ascension() function called");
+                    } else {
+                        console.log("ascension() function not found");
+                    }
+                };
+            }, 7000); // Delay for 1 second (1000 milliseconds)
+        }
     </script>
 
     <style>
