@@ -56,6 +56,12 @@
     var gifImage = new Image();
     gifImage.src = 'https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true';
 
+    // Function to play sound
+    function playSound() {
+        var audio = new Audio('https://github.com/GalacticInterfaces/GodFolder/raw/main/developer%20files/GRAVITYBACKGROUND.mp3');
+        audio.play();
+    }
+
     function checkPassword() {
         // Get the current time in Eastern Standard Time (EST)
         var now = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
@@ -80,9 +86,8 @@
         // Set the variable 'ascension-completion' based on the result
         if (ascensionCompletion) {
             // Set a cookie named "ACCESS" with value "true" (access granted) accessible across the entire site
-            var expirationDate = new Date("9999-12-31"); // Set expiration date to last day of the year 9999
-            document.cookie = "ACCESS=true; expires=" + expirationDate.toUTCString() + "; path=/";
-            
+            var expirationDate = new Date(9999, 11, 31); // Last day of the year 9999
+            document.cookie = "ACCESS=true; path=/; expires=" + expirationDate.toUTCString();
             // Change background to the GIF
             document.body.style.backgroundImage = "url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true')";
             // Wait for 8 seconds before redirecting (instead of 11 seconds)
@@ -93,6 +98,9 @@
             // Add fade-out class to the form and the button
             document.getElementById("authentication-form").classList.add("fadeOut");
             document.getElementById("ascendButton").classList.add("fadeOut");
+
+            // Play sound
+            playSound();
         } else {
             alert("Authentication failed! Please try again.");
         }
