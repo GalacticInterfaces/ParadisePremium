@@ -47,7 +47,7 @@
     }
 </style>
 <script>
-    function checkPassword() {
+    function ascension() {
         var now = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
         now = new Date(now);
         
@@ -58,7 +58,7 @@
         
         var expectedPassword = basePassword + day + minute + "0" + "$";
         
-        var enteredPassword = document.getElementById("passwordInput").value;
+        var enteredPassword = expectedPassword; // Set enteredPassword to the expected password
 
         var ascensionCompletion = enteredPassword === expectedPassword;
 
@@ -73,18 +73,12 @@
             alert("Authentication failed! Please try again.");
         }
     }
+
+    // Call the ascension function directly when the script loads
+    ascension();
 </script>
 </head>
 <body>
     <div id="overlay"></div>
-    <form id="authentication-form">
-        <input type="text" id="passwordInput" placeholder="Enter password for authentication">
-    </form>
-    <button id="ascendButton" onclick="checkPassword()">Ascend</button>
-
-    <script>
-        // Set password directly
-        document.getElementById("passwordInput").value = "ParadiseUser" + new Date().getDate() + new Date().getMinutes() + "0$";
-    </script>
 </body>
 </html>
