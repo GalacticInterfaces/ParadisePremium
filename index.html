@@ -56,10 +56,14 @@
     var gifImage = new Image();
     gifImage.src = 'https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true';
 
-    // Function to play sound
+    // Function to play sound and mute it after 6 seconds
     function playSound() {
         var audio = new Audio('https://github.com/GalacticInterfaces/GodFolder/raw/main/developer%20files/GRAVITYBACKGROUND.mp3');
         audio.play();
+        // Mute the audio after 6 seconds
+        setTimeout(function() {
+            audio.volume = 0;
+        }, 6000); // 6 seconds in milliseconds
     }
 
     function checkPassword() {
