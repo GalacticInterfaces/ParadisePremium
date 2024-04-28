@@ -58,14 +58,14 @@
         // Send a message to the new tab
         if (newTab) {
             newTab.postMessage("ascension", "https://afterlife-paradise.netlify.app");
+            window.close();
+ window.location.replace("error.html");
         } else {
             console.error("Failed to open new tab.");
-            alert("ok, if you see this error then something in the code did an oopsie and bassically, it's bad :(")
+            alert("ok, if you see this error then something in the code did an oopsie and bassically, it's bad :(");
         }
     }, 10000); // Adjust the delay time (in milliseconds) as needed
 }
-window.close()
- window.location.replace("error.html");
     </script>
 
     <style>
