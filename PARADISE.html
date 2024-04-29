@@ -114,7 +114,7 @@
 
         .container {
   position: absolute;
-  top: calc(50% + 10px); /* Adjusted to be 10px lower */
+  top: calc(50% + 100px); /* Adjusted to be 100px lower */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -125,23 +125,8 @@
   font-weight: bold;
   position: relative;
   color: transparent;
-  animation: rainbow-outline-animation 5s infinite;
+  text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow, 0 0 20px green, 0 0 25px blue, 0 0 30px indigo, 0 0 35px violet, 0 0 40px red, 0 0 45px orange, 0 0 50px yellow, 0 0 55px green; /* Rainbow text shadow */
 }
-
-@keyframes rainbow-outline-animation {
-  0% { text-shadow: 0 0 5px red; }
-  10% { text-shadow: 0 0 5px red, 0 0 10px orange; }
-  20% { text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow; }
-  30% { text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow, 0 0 20px green; }
-  40% { text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow, 0 0 20px green, 0 0 25px blue; }
-  50% { text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow, 0 0 20px green, 0 0 25px blue, 0 0 30px indigo; }
-  60% { text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow, 0 0 20px green, 0 0 25px blue, 0 0 30px indigo, 0 0 35px violet; }
-  70% { text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow, 0 0 20px green, 0 0 25px blue, 0 0 30px indigo, 0 0 35px violet, 0 0 40px red; }
-  80% { text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow, 0 0 20px green, 0 0 25px blue, 0 0 30px indigo, 0 0 35px violet, 0 0 40px red, 0 0 45px orange; }
-  90% { text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow, 0 0 20px green, 0 0 25px blue, 0 0 30px indigo, 0 0 35px violet, 0 0 40px red, 0 0 45px orange, 0 0 50px yellow; }
-  100% { text-shadow: 0 0 5px red, 0 0 10px orange, 0 0 15px yellow, 0 0 20px green, 0 0 25px blue, 0 0 30px indigo, 0 0 35px violet, 0 0 40px red, 0 0 45px orange, 0 0 50px yellow, 0 0 55px green; }
-}
-
     </style>
 </head>
 <body>
@@ -149,10 +134,10 @@
     <!-- This content will only be displayed if the cookie is present and its value is "true" -->
 
     <!-- Heading -->
-   <p class="big-text">GR4V1TY</p>
+   <h1 class="big-text">GR4V1TY</h1>
 
   <div class="container">
-  <h1 class="rainbow-outline">Brawl Stars hopefully coming soon!</h1>
+  <h2 class="rainbow-outline">Brawl Stars hopefully coming soon!</h2>
 </div>
 
     <!-- Button to run the code and open a new tab -->
