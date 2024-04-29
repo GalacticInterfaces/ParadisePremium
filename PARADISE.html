@@ -124,6 +124,12 @@
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           display: inline-block;
+          animation: rainbow-text-animation 10s linear infinite; /* Animation */
+        }
+
+        @keyframes rainbow-text-animation {
+          0% { background-position: 0 50%; }
+          100% { background-position: 100% 50%; }
         }
     </style>
 </head>
